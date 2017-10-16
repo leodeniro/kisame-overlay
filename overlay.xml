@@ -1,0 +1,13 @@
+<repositories encoding="unicode" version="1.1">
+  <repo priority="50" quality="experimental">
+    <name>kisame-overlay</name>
+    <description>a cool overlay</description>
+    <homepage>https://github.com/kisamehoshigake/kisame-overlay/</homepage>
+    <owner>
+      <email>kisame@protonmail.ch</email>
+      <name>kisame hoshigake</name>
+    </owner>
+    <source type="git">git://github.com/kisamehoshigake/kisame-overlay.git</source>
+    <feed>https://github.com/kisamehoshigake/kisame-overlay/commits/master</feed>
+  </repo>
+</repositories>
