@@ -148,7 +148,7 @@ src_install() {
 		TLP_SHCPL="$(get_bashcompdir)" \
 		\
 		TLP_NO_INIT=1 \
-		TLP_WITH_SYSTEMD=1 \
+		TLP_WITH_SYSTEMD=0 \
 		$(usex tpacpi-bundled TLP_NO_TPACPI={0,1}) \
 		$(usex pm-utils TLP_NO_PMUTILS={0,1}) \
 		install-tlp install-man $(usex rdw install-rdw "")
