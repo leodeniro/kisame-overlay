@@ -1,11 +1,10 @@
-
 # Copyright 1999-2017 Gentoo Foundation
 # Distributed under the terms of the GNU General Public License v2
 # $Id$
 
 EAPI=5
 
-inherit eutils bash-completion-r1 linux-info systemd udev
+inherit eutils bash-completion-r1 linux-info udev
 
 DESCRIPTION="Advanced Power Management for Linux"
 HOMEPAGE="http://linrunner.de/tlp"
@@ -21,17 +20,11 @@ if [[ "${PV}" == 9999* ]]; then
 	SRC_URI=""
 	KEYWORDS=""
 
-	MY_ADDITIONS_REPO_URI="
-		git://github.com/dywisor/tlp-gentoo-additions.git
-		https://github.com/dywisor/tlp-gentoo-additions.git
-	"
-
 	MY_ADDITIONS_REMOTE_REF="refs/heads/master"
 
 else
 	SRC_URI="
 		https://github.com/linrunner/TLP/archive/${PV}.tar.gz -> ${P}.tar.gz
-		https://tlp-gentoo-additions.s3.amazonaws.com/tlp-gentoo-patches-${PV}.tar.xz
 	"
 	S="${WORKDIR}/${PN^^}-${PV}"
 	KEYWORDS="~amd64 ~x86"
@@ -120,6 +113,9 @@ src_prepare() {
 	else
 		local -a PATCHES=()
 		local PDIR="${WORKDIR}/patches"
+
+		use tpacpi-bundled || \
+			PATCHES+=( "${PDIR}/0002-unbundle-tpacpi-bat.patch" )
 
 		epatch "${PATCHES[@]}"
 	fi
