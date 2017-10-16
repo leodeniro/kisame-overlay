@@ -137,12 +137,7 @@ index 094d5962..54046580 100644
 @@ -42,6 +43,12 @@ void framerender_frame(ObFrame *self)
          return;
      self->need_render = FALSE;
-
-
-+    if ( !self->client->fullscreen && !(self->client->type == OB_CLIENT_TYPE_DOCK) && config_theme_cornerradius )
-+        frame_round_corners(self->window);
-+
-
+ 
 +    if (config_theme_cornerradius &&
 +            !self->client->fullscreen &&
 +            !self->client->shaped &&
@@ -176,5 +171,4 @@ index c37fdcc5..f598cf15 100644
  
 -- 
 2.14.1
-
 
