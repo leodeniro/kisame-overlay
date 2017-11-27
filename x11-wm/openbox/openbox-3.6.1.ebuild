@@ -59,7 +59,7 @@ src_unpack() {
 
 src_prepare() {
 	use xdg && python_export_best
-	epatch "${FILESDIR}"/${PN}-3.5.2-gnome-session.patch
+#	epatch "${FILESDIR}"/${PN}-3.5.2-gnome-session.patch
 	epatch "${FILESDIR}"/openbox-3.6.1-rounded-corners.patch
 	sed -i \
 		-e "s:-O0 -ggdb ::" \
